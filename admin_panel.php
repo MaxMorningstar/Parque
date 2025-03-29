@@ -1,9 +1,12 @@
 <?php
 session_start();
-if(!isset($_SESSION['admin'])){
+
+// Verifica que la sesión exista y que el usuario sea de tipo 'admin'
+if(!isset($_SESSION['id']) || $_SESSION['tipo_usuario'] !== 'admin'){
     header("Location: admin_login.php");
     exit();
 }
+
 include 'db.php';
 
 $sql = "SELECT * FROM ventas ORDER BY fecha DESC";
@@ -47,7 +50,9 @@ $result = $conn->query($sql);
   <div class="container panel-container animate__animated animate__fadeInUp">
     <div class="d-flex justify-content-between align-items-center mb-3">
       <h2><i class="fas fa-tachometer-alt"></i> Panel de Administración</h2>
-      <a href="logout.php" class="btn btn-danger logout-btn"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</a>
+      <a href="logout.php" class="btn btn-danger logout-btn">
+        <i class="fas fa-sign-out-alt"></i> Cerrar Sesión
+      </a>
     </div>
     <div class="table-responsive">
       <table class="table table-bordered table-hover">

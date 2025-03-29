@@ -33,8 +33,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         $_SESSION['nombre'] = $row['nombre'];
         $_SESSION['tipo_usuario'] = $row['tipo_usuario'];
         
-        // Redirección según tipo de usuario
+        // Si es administrador, también se establece la variable 'admin'
         if($row['tipo_usuario'] == 'admin'){
+            $_SESSION['admin'] = true;
             header("Location: admin_panel.php");
         } else {
             header("Location: index.php");
@@ -114,7 +115,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         <label for="password"><i class="fas fa-lock"></i> Contraseña</label>
         <input type="password" class="form-control" name="password" id="password" placeholder="Ingresa tu contraseña" required>
       </div>
-      <button type="submit" class="btn btn-primary btn-block"><i class="fas fa-sign-in-alt"></i> Ingresar</button>
+      <button type="submit" class="btn btn-primary btn-block">
+        <i class="fas fa-sign-in-alt"></i> Ingresar
+      </button>
     </form>
   </div>
 

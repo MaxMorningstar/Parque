@@ -76,7 +76,11 @@
     <a class="navbar-brand" href="#"><i class="fas fa-water"></i> Parque Acuático</a>
     <div class="collapse navbar-collapse">
       <ul class="navbar-nav ml-auto">
-        <li class="nav-item"><a href="admin_login.php" class="nav-link"><i class="fas fa-user-shield"></i> Admin</a></li>
+        <li class="nav-item">
+          <a href="admin_login.php" class="nav-link">
+            <i class="fas fa-user-shield"></i> Admin
+          </a>
+        </li>
       </ul>
     </div>
   </nav>
@@ -152,8 +156,17 @@
       </div>
       <!-- Sección para mostrar el total dinámicamente -->
       <div class="alert alert-success text-center" id="total">Total: $0</div>
-      <button type="submit" class="btn btn-success btn-block"><i class="fas fa-check"></i> Comprar</button>
+      <button type="submit" class="btn btn-success btn-block">
+        <i class="fas fa-check"></i> Comprar
+      </button>
     </form>
+    
+    <!-- Botón de Cerrar Sesión -->
+    <div class="text-center mt-4">
+      <a href="logout.php" class="btn btn-outline-danger">
+        <i class="fas fa-sign-out-alt"></i> Cerrar Sesión
+      </a>
+    </div>
   </div>
 
   <!-- Pie de página -->
